@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paymentservice
+  labels:
+    app: paymentservice
+spec:
+  strategy:
+      rollingUpdate:
+        maxUnavailable: 0
+        maxSurge: 3
+  selector:
+    matchLabels:
+      app: paymentservice
+  replicas: 3
+  template:
+    metadata:      
+      labels:
+        app: paymentservice
+    spec:
+      containers:
+      - name: server
+        image: v1k7g85/hipster-paymentservice:v0.0.1
+        env:
+        - name: PORT
+          value: "50051"
