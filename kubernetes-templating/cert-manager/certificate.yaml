@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: chartmuseum.35.238.153.44.nip.io
+  namespace: chartmuseum
+spec:
+  dnsNames:
+    - chartmuseum.35.238.153.44.nip.io
+  secretName: chartmuseum-cert-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
