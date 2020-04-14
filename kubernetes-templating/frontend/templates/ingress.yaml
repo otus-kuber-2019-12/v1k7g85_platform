@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hipster-shop-ingress
+spec:
+    rules:
+    - host: hipster-shop.35.238.153.44.nip.io
+      http:
+        paths:
+        - backend:
+            serviceName: frontend
+            servicePort: 80
+          path: /
